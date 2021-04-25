@@ -1,0 +1,24 @@
+.input-field label {
+    color:  #A3ABCC;
+    padding-left: 10px;
+    transform: translateY(15px);
+    height: auto !important;
+}
+.input-field.col label {
+    height: auto !important;
+}
+
+.input-field input[type=text]:focus + label , .input-field input[type=number]:focus + label , .input-field input[type=date]:focus + label, .input-field input[type=password]:focus + label {
+    color:  #A3ABCC !important;
+}
+.input-field input[type=text] , .input-field input[type=number] , .input-field input[type=date], .input-field input[type=password] {
+    border: 1px solid #828282;
+    border-radius: 5px;
+    height: 54px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.input-field>label:not(.label-icon).active {
+    transform: translateY(0px) scale(0.8);
+    transform-origin: 0 0;
+}
