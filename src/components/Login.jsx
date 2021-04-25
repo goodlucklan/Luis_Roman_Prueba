@@ -13,6 +13,25 @@ class Login extends Component {
     celular: "",
     placa: "",
     nombre: "",
+    total: 14300,
+  };
+  onAdd = () => {
+    if (this.state.total >= 16500) {
+      alert("No puede agregar más el monto");
+    } else {
+      this.setState({
+        total: this.state.total + 100,
+      });
+    }
+  };
+  onReduce = () => {
+    if (this.state.total <= 12500) {
+      alert("No puede reducir más el monto");
+    } else {
+      this.setState({
+        total: this.state.total - 100,
+      });
+    }
   };
   onHandle = (e) => {
     let nam = e.target.name;
@@ -30,6 +49,16 @@ class Login extends Component {
       this.setState({ firstStep: true, nombre: data.name });
     }
   };
+  onBack = () => {
+    this.setState({
+      firstStep: false,
+      nombre: "",
+      dni: "",
+      celular: "",
+      placa: "",
+      total: 14300,
+    });
+  };
   render() {
     let { firstStep } = this.state;
     return (
@@ -46,9 +75,9 @@ class Login extends Component {
         ) : (
           <FirstStep
             propiedades={this.state}
-            // firstStep={firstStep}
-            // secondStep={secondStep}
-            // nombre={nombre}
+            onAdd={this.onAdd}
+            onReduce={this.onReduce}
+            onBack={this.onBack}
           />
         )}
       </React.Fragment>

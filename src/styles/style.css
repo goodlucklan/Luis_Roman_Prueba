@@ -65,3 +65,16 @@ body {
       float: none;
     }
 }
+.box{
+    border: 1px solid #C5CBE0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+}
+.btn-small{
+    padding: 10px;
+}
