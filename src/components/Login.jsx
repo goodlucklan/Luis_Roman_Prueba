@@ -43,10 +43,12 @@ class Login extends Component {
     if (dni === "" || celular === "" || placa === "") {
       return alert("Por favor completar todos los datos");
     } else {
+      //Aca se quiso usar la api de Reniec pero lamentablemente se paso los accesos permitidos diarios
       let { data } = await axios.get(
-        `https://dni.optimizeperu.com/api/persons/${dni}`
+        // `https://dni.optimizeperu.com/api/persons/${dni}`
+        `https://randomuser.me/api/?gender=male`
       );
-      this.setState({ firstStep: true, nombre: data.name });
+      this.setState({ firstStep: true, nombre: data.results[0].name.first });
     }
   };
   onBack = () => {
@@ -67,9 +69,9 @@ class Login extends Component {
   onBack2 = () => {
     console.log(this.state);
     this.setState({
-      secondStep: false
-    })
-  }
+      secondStep: false,
+    });
+  };
   render() {
     let { firstStep } = this.state;
     return (
@@ -90,7 +92,7 @@ class Login extends Component {
             onReduce={this.onReduce}
             onBack={this.onBack}
             onNext={this.onNext}
-            onBack2 = {this.onBack2}
+            onBack2={this.onBack2}
           />
         )}
       </React.Fragment>
