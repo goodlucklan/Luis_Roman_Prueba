@@ -59,6 +59,17 @@ class Login extends Component {
       total: 14300,
     });
   };
+  onNext = () => {
+    this.setState({
+      secondStep: true,
+    });
+  };
+  onBack2 = () => {
+    console.log(this.state);
+    this.setState({
+      secondStep: false
+    })
+  }
   render() {
     let { firstStep } = this.state;
     return (
@@ -78,6 +89,8 @@ class Login extends Component {
             onAdd={this.onAdd}
             onReduce={this.onReduce}
             onBack={this.onBack}
+            onNext={this.onNext}
+            onBack2 = {this.onBack2}
           />
         )}
       </React.Fragment>
